@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<app>
+    <bean id="userService" class="com.yupi.service.UserService"/>
+</app>

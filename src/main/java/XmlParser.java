@@ -17,7 +17,7 @@ public class XmlParser {
 
     public void parse() throws DocumentException {
         SAXReader saxReader = new SAXReader();
-        Document document = saxReader.read(getResourceAsStream("test.xml"));
+        Document document = saxReader.read(getResourceAsStream("spring.xml"));
         Element rootElement = document.getRootElement();
         getNodes(rootElement);
     }
