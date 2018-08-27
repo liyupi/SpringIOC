@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<bean aa="haha">
+    <sub>
+        bb
+        <subsub>aa</subsub>
+    </sub>
+    <sub2>asa</sub2>
+</bean>
