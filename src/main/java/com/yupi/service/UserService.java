@@ -3,14 +3,11 @@ package com.yupi.service;
 import com.yupi.spring.annotation.SpringBean;
 
 /**
- * 功能描述：
+ * 功能描述：User服务
  *
  * @author Yupi Li
  * @date 2018/8/27 22:32
  */
-@SpringBean
-public class UserService {
-    public void print() {
-        System.out.println("success");
-    }
+public interface UserService {
+    void print();
 }
