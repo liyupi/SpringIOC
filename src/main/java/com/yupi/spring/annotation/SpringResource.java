@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  * @author Yupi Li
  * @date 2018/8/28 22:33
  */
-@Target({ElementType.TYPE})
+@Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface SpringResource {
 }

@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -27,6 +28,7 @@ public class ExtClassPathXmlApplicationContext {
         this.beans = new ConcurrentHashMap<String, Object>();
         this.basePackage = basePackage;
         initBeans();
+        initFields();
     }
 
     // 初始化Bean对象
@@ -41,6 +43,14 @@ public class ExtClassPathXmlApplicationContext {
         }
     }
 
+    // 初始化依赖注入
+    public void initFields() throws IllegalAccessException {
+        for (Map.Entry<String, Object> entry : beans.entrySet()) {
+            dependencyInject(entry.getValue());
+        }
+    }
+
+
     // 判断类上是否有注解，创建bean实例，存入map
     public ConcurrentHashMap<String, Object> hasAnnotation(List<Class<?>> classes) throws InstantiationException, IllegalAccessException {
         for (Class<?> classInfo : classes) {
@@ -49,6 +59,7 @@ public class ExtClassPathXmlApplicationContext {
                 // 获取类名作为bean名称
                 String className = StringUtils.uncapitalize(classInfo.getSimpleName());
                 Object bean = newInstance(classInfo);
+                // 不要在此处依赖注入，因为bean还没全部初始化完毕
                 beans.put(className, bean);
             }
         }
@@ -88,10 +99,9 @@ public class ExtClassPathXmlApplicationContext {
                 // 允许访问私有属性
                 field.setAccessible(true);
                 // 设置属性（将新属性赋值给已有对象）
-                field.set(object,bean);
+                field.set(object, bean);
             }
         }
     }
 
-    //
 }

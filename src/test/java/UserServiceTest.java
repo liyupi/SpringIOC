@@ -11,17 +11,18 @@ import org.junit.Test;
  */
 public class UserServiceTest {
 
+
     @Test
-    public void print() throws Exception {
+    public void XmlTest() throws Exception {
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("spring.xml");
         UserService userService = (UserService) app.getBean("userService");
-        userService.print();
+        userService.init();
     }
 
     @Test
     public void AnnotationTest() throws Exception {
-        ExtClassPathXmlApplicationContext app = new ExtClassPathXmlApplicationContext("com.yupi.service");
-        UserService userService = (UserService) app.getBean("userService");
-        userService.print();
+        ExtClassPathXmlApplicationContext app = new ExtClassPathXmlApplicationContext("com.yupi.service.impl");
+        UserService userService = (UserService) app.getBean("userServiceImpl");
+        userService.di();
     }
 }
