@@ -26,6 +26,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.lordrex34.reflection/commons-reflection-utils -->
+        <dependency>
+            <groupId>com.github.lordrex34.reflection</groupId>
+            <artifactId>commons-reflection-utils</artifactId>
+            <version>1.0.2</version>
+        </dependency>
 
     </dependencies>
 

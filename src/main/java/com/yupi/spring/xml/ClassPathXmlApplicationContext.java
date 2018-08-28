@@ -1,4 +1,4 @@
-package com.yupi.spring;
+package com.yupi.spring.xml;
 
 import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Document;
@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * 功能描述：全局上下文
+ * 功能描述：手撕SpringIOC之XML全局上下文
  *
  * @author Yupi Li
  * @date 2018/8/27 20:50

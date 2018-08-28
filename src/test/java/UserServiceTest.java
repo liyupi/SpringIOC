@@ -1,6 +1,6 @@
 import com.yupi.service.UserService;
-import com.yupi.spring.ClassPathXmlApplicationContext;
-import org.dom4j.DocumentException;
+import com.yupi.spring.annotation.ExtClassPathXmlApplicationContext;
+import com.yupi.spring.xml.ClassPathXmlApplicationContext;
 import org.junit.Test;
 
 /**
@@ -14,6 +14,13 @@ public class UserServiceTest {
     @Test
     public void print() throws Exception {
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("spring.xml");
+        UserService userService = (UserService) app.getBean("userService");
+        userService.print();
+    }
+
+    @Test
+    public void AnnotationTest() throws Exception {
+        ExtClassPathXmlApplicationContext app = new ExtClassPathXmlApplicationContext("com.yupi.service");
         UserService userService = (UserService) app.getBean("userService");
         userService.print();
     }
